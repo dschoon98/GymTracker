@@ -1,0 +1,7 @@
+<Solution>
+  <Project Path="Core/Core.csproj" Id="b59685b8-2413-4e07-825a-436730b434e6" />
+  <Project Path="docker-compose.dcproj">
+    <Build />
+  </Project>
+  <Project Path="Server\Server.csproj" />
+</Solution>

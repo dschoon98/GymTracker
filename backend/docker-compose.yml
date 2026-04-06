@@ -1,0 +1,32 @@
+services:
+  server:
+    build:
+      context: Server
+      dockerfile: Dockerfile
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - RapidApiKey=${RapidApiKey}
+      - GIFS_PATH=/gifs
+    volumes:
+      - C:/Users/adpsc/Pictures/GymTracker/gifs:/gifs
+    networks:
+      - app-network
+  postgres:
+    image: postgres:18.3
+    restart: always
+    environment:
+      POSTGRES_DB: local
+      POSTGRES_USER: root
+      POSTGRES_PASSWORD: root
+    ports:
+      - "5432:5432"
+    networks:
+      - app-network
+    volumes:
+      - postgres-data:/var/lib/postgresql
+networks:
+  app-network:
+
+volumes:
+  postgres-data:
+  gifs:
